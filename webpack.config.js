@@ -10,6 +10,18 @@ module.exports = {
     filename: "bundle.js",
     clean: true,
   },
+  resolve: {
+    extensions: [".js", ".ts"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/template.html"),
